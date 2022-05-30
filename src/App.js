@@ -19,7 +19,7 @@ function App() {
               <Topbar />
               <div class="container-fluid">
                 <Routes>
-                  <Route path="/dash" element={<Dashboard />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/student" element={<Studentlist />} />
                   <Route path="/student/:id" element={<Attendancelist />} />
                   <Route path="/addatt/:id" element={<Addatt />} />

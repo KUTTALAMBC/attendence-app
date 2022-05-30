@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Studentlist() {
-  const [value, setValue] = useState([]);
+  const [students, setStudents] = useState([]);
 
   useEffect(async () => {
     try {
-      let data = await fetch(
+      let StudentData = await fetch(
+        
         "https://61c46bbbf1af4a0017d99520.mockapi.io/students"
       );
-      let sendData = await data.json();
-      setValue(sendData);
+      let StudentLists = await StudentData.json();
+      setStudents(StudentLists);
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +23,7 @@ function Studentlist() {
       </div>
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">DataTables Examp le</h6>
+          <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -40,18 +41,19 @@ function Studentlist() {
                   <th>Action</th>
                 </tr>
               </thead>
+     
 
               <tbody className="text-center">
-                {value.map((main) => {
+                {students.map((student) => {
                   return (
                     <tr>
-                      <td>{main.id}</td>
-                      <td>{main.name}</td>
+                      <td>{student.id}</td>
+                      <td>{student.name}</td>
                       <td>
-                        <img src={main.avatar} />
+                        <img src={student.avatar} />
                       </td>
                       <td>
-                        <Link to={`/student/${main.id}`}>
+                        <Link to={`/student/${student.id}`}>
                           <button className="btn btn-primary">view</button>
                         </Link>
                       </td>
