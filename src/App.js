@@ -11,8 +11,9 @@ import Addatt from "./Addatt";
 function App() {
   return (
     <>
+     <BrowserRouter>
       <div id="wrapper">
-        <BrowserRouter>
+       
           <Sidebar />
           <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
@@ -27,8 +28,9 @@ function App() {
               </div>
             </div>
           </div>
-        </BrowserRouter>
+       
       </div>
+      </BrowserRouter>
     </>
   );
 }

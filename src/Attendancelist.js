@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom";
 function Attendancelist() {
   const [atten, setAtten] = useState([]);
   let params = useParams();
-  useEffect(async () => {
+  useEffect(() =>{
+  (async () => {
     try {
       let attendanceData = await fetch(
         `https://61c46bbbf1af4a0017d99520.mockapi.io/attendance?useridd=${params.id}`
@@ -14,7 +15,10 @@ function Attendancelist() {
     } catch (error) {
       console.log(error);
     }
+     })()
   }, []);
+
+ 
 
   return (
     <>

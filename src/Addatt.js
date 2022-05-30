@@ -20,6 +20,7 @@ function Addatt() {
         },
       });
       navigate(`/student/${params.id}`);
+      console.log(values)
     },
   });
   return (

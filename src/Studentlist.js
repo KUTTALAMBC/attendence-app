@@ -4,18 +4,32 @@ import { Link } from "react-router-dom";
 function Studentlist() {
   const [students, setStudents] = useState([]);
 
-  useEffect(async () => {
-    try {
-      let StudentData = await fetch(
+  // useEffect(async () => {
+  //   try {
+  //     let StudentData = await fetch(
         
-        "https://61c46bbbf1af4a0017d99520.mockapi.io/students"
-      );
-      let StudentLists = await StudentData.json();
-      setStudents(StudentLists);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  //       "https://61c46bbbf1af4a0017d99520.mockapi.io/students"
+  //     );
+  //     let StudentLists = await StudentData.json();
+  //     setStudents(StudentLists);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
+  useEffect(() => {
+    (async ()=>{
+       try {
+         let StudentData = await fetch(
+           
+           "https://61c46bbbf1af4a0017d99520.mockapi.io/students"
+         );
+         let StudentLists = await StudentData.json();
+         setStudents(StudentLists);
+       } catch (error) {
+         console.log(error);
+       }
+   })()
+ }, []);
   return (
     <>
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
